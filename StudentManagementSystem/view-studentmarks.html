@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view-student</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Css/style.css">
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        body{
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+
+
+        <header>
+
+
+            <nav class="navbar navbar-expand-md bg-primary navbar-dark p-3">
+                <!-- Brand -->
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <a href="Home-page.html"><span><img class="navbar-brand imageIcon mr-1" src="Images/svuniversity.jpg"
+                            alt="align box" align="CENTER"><span class="font-weight-bold text-white h4">Student Marks Management
+                           </span></a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav float-md-right">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="Home-page.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="new-student.html">Measure Marks
+                                </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="students-results.html">Students
+                                Marks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="classes-list.html">Classes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="addClass.html">Sections</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="dashBoard-page.html">DashBoard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="result-page.html">Result</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold " href="contact-us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="container mt-5 bg-white  p-0">
+
+        <div class="row shadow-sm m-0">
+            <div class="col-md-4 pl-2">
+                <h5 class="text-primary py-3 font-weight-bolder"> View Details</h5>
+            </div>
+            <div class="col-md-8 p-3 text-right d-none">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Student Class
+                </button>&nbsp;
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalSection">
+                    Student Section
+                </button>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-6"><span><a href="students-results.html"><i class="fa-solid fa-address-card fa-2x text-primary"></i></a></span>
+                <span class="font-weight-bold h4 p-2"> Details</span>
+            </div>
+        </div> -->
+        <form class="container-fluid  pt-5 mt-3 border">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm">
+                            <div class="h5 font-weight-bold pl-3">  HallTicket No </div>
+                        </label>
+                        <div class="col-sm-7 pl-5 ml-5">
+                            <!-- <input type="text" class="form-control form-control-lg " id="nmbHallTicket"
+                                placeholder="HallTicket No..."  maxlength="13"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                             -->
+                             <label id="nmbHallTicket"></label>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="row ">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm">
+                            <div class="h4">Student Name </div>
+                        </label>
+                        <div class="col-sm-7  pt-2">
+                            <!-- <input type="text" class="form-control form-control-lg " id="txtStudentName"
+                                placeholder="Student Name"> -->
+                                <label id="txtStudentName"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-right">
+                            <div class="h4">Class</div>
+                        </label>
+                        <div class="col-sm-7  pt-2">
+                            <!-- <input type="text" class="form-control form-control-lg " id="txtClassName"
+                                placeholder="Class"> -->
+                                <label id="txtClassName"></label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row ">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Section </div>
+                        </label>
+                        <label id="ddlSection" class="pl-3" ></label>
+                        <!-- <select class=" col-sm-6 form-control form-control-lg ml-3" id="ddlSection" required="">
+                            <option>Select</option>
+                            <option>Section A</option>
+                            <option>Section B</option>
+                            <option>Section C</option>
+                        </select> -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-right">
+                            <div class="h4">Gender</div>
+                        </label>
+                        <label id="ddlGender" class="pl-3 pt-2"></label>
+                        <!-- <select class=" col-sm-6 form-control form-control-lg ml-3" id="ddlGender" required="">
+                            <option>Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+
+                        </select> -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 h4 font-weight-bold">Subjects</div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Mathematics </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="number" class="form-control form-control-lg " id="nmbMaths"
+                                placeholder="Marks"> -->
+                                <label id="nmbMaths"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm  text-right">
+                            <div class="h4">English </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="number" class="form-control form-control-lg " id="nmbEnglish"
+                                placeholder="Marks"> -->
+                                <label id="nmbEnglish"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Physics </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="number" class="form-control form-control-lg " id="nmbPhysics"
+                                placeholder="Marks"> -->
+                                <label  id="nmbPhysics"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm  text-right">
+                            <div class="h4">Hindi </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="number" class="form-control form-control-lg " id="nmbHindi"
+                                placeholder="Marks"> -->
+                                <label id="nmbHindi"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Chemistry </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="number" class="form-control form-control-lg " id="nmbChemistry"
+                                placeholder="Marks"> -->
+                                <label id="nmbChemistry"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Result </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="text" class="form-control form-control-lg " id="txtResult"> -->
+                        <label id="txtResult"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm text-md-right ">
+                            <div class="h4">Grade </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="text" class="form-control form-control-lg " id="txtGrade"> -->
+                       <label id="txtGrade" class="mt-2"></label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="float-md-right">
+                        <button type="button" onclick="editBtn(editDeailsStudent.generate)" class="btn btn-success">Edit</button>&nbsp;
+                       
+                    </label>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+<script>
+
+
+
+function getParameterByName(name, url) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        var index = getParameterByName("index", window.location.href);
+        var data = JSON.parse(localStorage.getItem("stu"));
+        //var editDeailsStudent = data.filter((item, idx) => idx == index)[0];
+        //var editDeailsStudent = data.filter((item, idx) => idx == index)[0];
+        var editDeailsStudent = data.filter(item=>item['generate']==index)[0];
+        //document.getElementById("spanUserId").innerHTML =editDeailsStudent.generate;
+        document.getElementById("nmbHallTicket").innerHTML = editDeailsStudent.Hallticket;
+        document.getElementById("txtStudentName").innerHTML = editDeailsStudent.StuName;
+        document.getElementById("txtClassName").innerHTML = editDeailsStudent.StuClass;
+        document.getElementById("ddlSection").innerHTML = editDeailsStudent.StuSection;
+        document.getElementById("ddlGender").innerHTML = editDeailsStudent.StuGender;
+
+        document.getElementById("nmbMaths").innerHTML=editDeailsStudent.Mathe;
+        document.getElementById("nmbPhysics").innerHTML=editDeailsStudent.Phy;
+        document.getElementById("nmbChemistry").innerHTML=editDeailsStudent.Chemi;
+        document.getElementById("nmbEnglish").innerHTML=editDeailsStudent.Eng;
+        document.getElementById("nmbHindi").innerHTML=editDeailsStudent.Hindi;
+        document.getElementById("txtResult").innerHTML=editDeailsStudent.Result;
+        document.getElementById("txtGrade").innerHTML=editDeailsStudent.Grade;
+
+        function editBtn(k){
+            window.location.href = "edit-studentmarks.html?index=" + k;
+            console.log(editDeailsStudent);
+        }
+</script>
+
+
+</body>
+
+</html>

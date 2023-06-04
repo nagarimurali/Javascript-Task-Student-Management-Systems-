@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Class</title>
+    <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/style1.css">
+    <!-- css source -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <!-- jquery Data tables -->
+
+
+    <!-- Toast Script -->
+
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* sdd */
+
+
+        /* ggfh */
+        body {
+            background-color: whitesmoke;
+        }
+
+        label {
+
+            margin: 0.5rem;
+        }
+
+        table.dataTable tbody th,
+        table.dataTable tbody td {
+            padding: 10px 17px;
+        }
+
+        #example_wrapper {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="toast"></div>
+    <div class="container-fluid p-0">
+
+
+        <header>
+
+
+            <nav class="navbar navbar-expand-md bg-primary navbar-dark p-3">
+                <!-- Brand -->
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <a href="Home-page.html"><span><img class="navbar-brand imageIcon mr-1" src="Images/svuniversity.jpg"
+                            alt="align box" align="CENTER"><span class="font-weight-bold text-white h4">Student Marks
+                            Management
+                        </span></a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav float-md-right">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="Home-page.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="new-student.html">Measure Marks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="students-results.html">Students
+                                Marks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="classes-list.html">Classes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="addClass.html">Sections</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="dashBoard-page.html">DashBoard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="result-page.html">Result</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold " href="contact-us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="container mt-5 bg-white p-0">
+
+        <div class="row shadow-sm m-0">
+            <div class="col-md-4 pl-0">
+                <h5 class="text-primary py-3 pl-2 font-weight-bolder ">Sections</h5>
+            </div>
+            <div class="col-md-8 p-3 text-right ">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Student Class
+                </button>&nbsp;
+                <button type="button" class="btn btn-primary" id="btnStudentSection">
+                    Student Section
+                </button>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Student Class</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right ">
+                                        <div class="h4">Class</div>
+                                    </label>
+                                    <input type="text"
+                                        class="col-sm-6 form-control form-control-lg ml-3 form-control form-control-lg "
+                                        id="txtAddClassName" placeholder="Class">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-right h4">Status</div>
+                            <div class="col-md-3 form-check text-right">
+                                <input class="form-check-input" type="radio" name="addClass" value="Active"
+                                    id="rdbActive1">
+                                <label class="form-check-label mt-0" for="flexCheckIndeterminate">
+                                    Active
+                                </label>
+                            </div>
+                            <div class="col-md-3 form-check">
+                                <input class="form-check-input" type="radio" name="addClass" value="Inactive"
+                                    id="rdbInactive1">
+                                <label class="form-check-label mt-0" for="flexCheckIndeterminate">
+                                    Inactive
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="btnSaveCls">Save </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalSection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Student Section</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row d-none">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right">
+                                        <div class="h4">S.No</div>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-lg " id="txtSNo"
+                                            placeholder="S.No">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right">
+                                        <div class="h4">Class<span class="text-danger">*</span> </div>
+                                    </label>
+                                    <div class="col-sm-7">
+                                        <!-- <input type="text" class="form-control form-control-lg " id="ddlClass"
+                                            placeholder="Class"> -->
+                                        <select class="col-sm-11 form-control form-control-lg" id="ddlClass"
+                                            placeholder="Class" required="">
+                                            <option>Select</option>
+                                            <option>8 Class</option>
+                                            <option>9 Class</option>
+                                            <option>10 Class </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right ">
+                                        <div class="h4">Section<span class="text-danger">*</span> </div>
+                                    </label>
+                                    <!-- <select class=" col-sm-6 form-control form-control-lg ml-3" id="ddlSection" required="">
+                        <option>Select</option>
+                        <option>Section A</option>
+                        <option>Section B</option>
+                        <option>Section C</option>
+                    </select> -->
+                                    <input type="text"
+                                        class="col-sm-6 form-control form-control-lg ml-3 form-control form-control-lg "
+                                        id="txtSectionBox" placeholder="Section">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" id="activeSection">
+                            <div class="col-md-4 text-right h4">Status</div>
+                            <div class="col-md-3 form-check text-right">
+                                <input class="form-check-input" type="radio" name="addSection" value="Active"
+                                    id="rdbActive">
+                                <label class="form-check-label mt-0" for="flexCheckIndeterminate">
+                                    Active
+                                </label>
+                            </div>
+                            <div class="col-md-3 form-check">
+                                <input class="form-check-input" type="radio" name="addSection" value="InActive"
+                                    id="rdbInactive">
+                                <label class="form-check-label mt-0" for="flexCheckIndeterminate">
+                                    InActive
+                                </label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="btnSubmit">Save </button>
+                        <button type="button" class="btn btn-success d-none" id="btnUpdate">Update </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-striped table-sm mt-3" id="example">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    </div>
+
+
+
+    <script>
+
+        function StudentdenClass() {
+            let dhynamicClass = document.getElementById("txtAddClassName").value;
+            let radioBtn = document.getElementsByName("addClass");
+
+            let selectedSize;
+            for (const radioButton of radioBtn) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            console.log(selectedSize);
+
+
+
+            let chekedClsName = true;
+            let strorageDataCls = localStorage.getItem("Class");
+            // close.log(strorageDataCls)
+            if (strorageDataCls != null && strorageDataCls != undefined) {
+                if (strorageDataCls.length != 0) {
+                    let strorageDataCls1 = [...JSON.parse(localStorage.getItem("Class"))]
+                    let resultCls = strorageDataCls1.filter(itemVle => itemVle.Class === dhynamicClass);
+                    if (resultCls.length) {
+                        alert('Already saved the Class...')
+                        chekedClsName = false;
+                    }
+
+                }
+
+            }
+
+
+            if (dhynamicClass != "" && chekedClsName && selectedSize != undefined) {
+                let NewDhynamicClass = {
+                    "Class": dhynamicClass,
+                    "Status": selectedSize
+                }
+                let studentCls = [];
+                let studentClsString = localStorage.getItem("Class");
+                studentCls = (studentClsString == "" || studentClsString == null || studentClsString == undefined) ? [] : JSON.parse(studentClsString)
+
+                studentCls.push(NewDhynamicClass);
+                localStorage.setItem("Class", JSON.stringify(studentCls))
+                window.location.href = "addClass.html"
+                $("#exampleModal").modal('hide');
+
+
+            } else {
+                alert('Please enter the Class')
+            }
+        }
+
+        document.getElementById("btnSaveCls").addEventListener("click", () => {
+            StudentdenClass();
+        });
+
+
+
+        //Class Details
+
+        let strorageDataCls1 = [...JSON.parse(localStorage.getItem("Class"))]
+
+        console.log(strorageDataCls1);
+        let AddOption = "";
+        strorageDataCls1.forEach((item) => {
+            if (item.Status == "Active") {
+                AddOption += `<option>${item.Class}</option>`;
+            }
+        })
+        document.getElementById("ddlClass").innerHTML = AddOption;
+
+        function uuidv4() {
+            return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            );
+        }
+        //Student Section button
+        document.getElementById("btnStudentSection").addEventListener("click", function () {
+
+            $("#exampleModalSection").modal('show');
+            // document.getElementById("exampleModalSection").style.display = "block"
+            $("#btnUpdate").addClass('d-none');
+            $("#btnSubmit").removeClass('d-none');
+
+            document.getElementById("rdbActive").checked = false;
+            document.getElementById("rdbInactive").checked = false;
+
+            document.getElementById("ddlClass").value = "";
+            document.getElementById("txtSectionBox").value = "";
+
+        })
+
+        function SectionUPdate() {
+            //chekedClsName = true;
+            let duplicates = true;
+            let guid = uuidv4();
+            let Classelection = document.getElementById("ddlClass").value;
+            let SectionData = document.getElementById("txtSectionBox").value;
+            //Active in Active
+            let radioBtns = document.getElementsByName("addSection");
+            let selectedSize;
+            for (const radioButton of radioBtns) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+
+
+
+            // 
+
+            let StrorageSelCls3 = JSON.parse(localStorage.getItem("Selection"));
+            if (StrorageSelCls3 != undefined && StrorageSelCls3 != null) {
+                if (StrorageSelCls3 != 0) {
+                    StrorageSelCls3.forEach((el, i) => {
+                        if (el.Class === Classelection && el.Section === SectionData) {
+                            alert('Already saved the Class...')
+                            duplicates = false;
+
+                        }
+
+                    });
+                }
+            }
+            if (Classelection != "" && SectionData != "" && duplicates && selectedSize != undefined) {
+                let FinalClaa = {
+                    "GUID": guid,
+                    "Class": Classelection,
+                    "Section": SectionData,
+                    "Status": selectedSize
+
+                }
+                // console.log(FinalClaa);
+                let FinalClass = [];
+                let StrorageSelCls = localStorage.getItem("Selection");
+
+
+                FinalClass = (StrorageSelCls == "" || StrorageSelCls == null || StrorageSelCls == undefined) ? [] : JSON.parse(StrorageSelCls)
+                FinalClass.push(FinalClaa);
+                localStorage.setItem("Selection", JSON.stringify(FinalClass));
+                $("#exampleModalSection").modal('hide');
+                window.location.href = "addClass.html"
+
+
+            } else {
+                alert("Please enter the all values")
+            }
+
+        }
+
+        document.getElementById("btnSubmit").addEventListener("click", () => {
+            SectionUPdate();
+        })
+
+
+        //Edit icon
+
+        let currentData = "";
+        function editDetails(guid) {
+
+            let jsonGetItem1 = (JSON.parse(localStorage.getItem("Selection")));
+
+            currentData = guid;
+            let editData = jsonGetItem1.filter(item => item['GUID'] == guid)[0];
+
+
+            document.getElementById("ddlClass").value = editData.Class;
+            document.getElementById("txtSectionBox").value = editData.Section;
+
+
+            if (editData.Status == "Active") {
+                document.getElementById("rdbActive").checked = true;
+                document.getElementById("rdbInactive").checked = false;
+            } else {
+                document.getElementById("rdbInactive").checked = true;
+                document.getElementById("rdbActive").checked = false;
+            }
+            $("#exampleModalSection").modal('show');
+            $("#btnUpdate").removeClass('d-none');
+            $("#btnSubmit").addClass('d-none');
+
+
+        }
+
+        $("#btnUpdate").click(function () {
+            let Classelection = document.getElementById("ddlClass").value;
+            let SectionData = document.getElementById("txtSectionBox").value;
+            let duplicates = true;
+            // let Status = document.getElementById("rdbActive").checked ? "Active" : "Inactive"
+            let radioBtns = document.getElementsByName("addSection");
+            let selectedSize;
+            for (const radioButton of radioBtns) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            //duplication validation
+
+            // let StrorageSelCls3 = JSON.parse(localStorage.getItem("Selection"));
+            // if (StrorageSelCls3 != undefined && StrorageSelCls3 != null) {
+            //     if (StrorageSelCls3 != 0) {
+            //         StrorageSelCls3.forEach((el, i) => {
+            //             if (el.Class === Classelection && el.Section === SectionData && el.Status===selectedSize) {
+            //                 alert('Already saved the Class...')
+            //                 duplicates = false;
+
+            //             }
+
+            //         });
+            //     }
+            // }
+
+
+
+            //
+
+            if (Classelection != "" && SectionData != "" && selectedSize != undefined) {
+                let jsonGetItem1 = (JSON.parse(localStorage.getItem("Selection")));
+                let editData = jsonGetItem1.filter(item => item['GUID'] == currentData)[0];
+
+                jsonGetItem1.forEach((value2, inte) => {
+                    if (value2.GUID == editData.GUID) {
+                        value2["Class"] = Classelection,
+                            value2["Section"] = SectionData,
+                            value2["Status"] = selectedSize
+
+                    }
+                })
+                localStorage.setItem("Selection", JSON.stringify(jsonGetItem1));
+                // loadData(JSON.parse(localStorage.getItem("Selection")));
+                $("#exampleModalSection").modal('hide');
+                window.location.href = "addClass.html"
+
+            } else {
+                alert('Please enter all values')
+            }
+
+        })
+
+
+        //Delete function
+
+        function deleteItem(guid) {
+            let jsonGetItem1 = (JSON.parse(localStorage.getItem("Selection")));
+            var conformed = confirm('Are you sure you want to delete this item?');
+            if (conformed) {
+                storeNewObject1 = jsonGetItem1.filter(item => item['GUID'] != guid);
+                sessionStorage.removeItem('GUID');
+                localStorage.setItem("Selection", JSON.stringify(storeNewObject1));
+                loadData(JSON.parse(localStorage.getItem("Selection")));
+                window.location.href = "addClass.html"
+
+            }
+
+        }
+
+        loadData(JSON.parse(localStorage.getItem("Selection")));
+        function loadData(ClassSection) {
+            //let ClassSection = [...JSON.parse(localStorage.getItem("Selection"))];
+            let stClassName = "";
+            ClassSection.forEach(function (v, i) {
+                let index = i + 1;
+                stClassName += `<tr id="spanId${index}"><td>${index}</td><td>${v.Class}</td><td>${v.Section}</td><td>
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                   ${v.Status} &nbsp;
+                                </label>
+                               </td><td><span ><i style="cursor: pointer" onclick=" deleteItem('${v.GUID}')" class="fa-solid fa-trash p-2 text-danger" ></i></span></td><td><i style="cursor: pointer" onclick="editDetails('${v.GUID}')" class="fa-solid fa-pen p-2 text-primary" ></i></td></tr>`;
+
+            });
+            document.getElementById("tableBody").innerHTML = stClassName;
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+
+        }
+
+
+
+
+
+
+    </script>
+    <!-- <script src="Js/app.js"></script> -->
+    <script src="Js/main.js"></script>
+
+
+</body>
+
+</html>

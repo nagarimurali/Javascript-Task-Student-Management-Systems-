@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="Css/style.css">
+
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid p-0">
+            <header>
+
+
+                <nav class="navbar navbar-expand-md bg-primary navbar-dark p-3">
+                    <!-- Brand -->
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <a href="Home-page.html"><span><img class="navbar-brand imageIcon mr-1"
+                                src="Images/svuniversity.jpg" alt="align box" align="CENTER"><span
+                                class="font-weight-bold text-white h4">Student Marks Management
+                            </span></a>
+
+                    <!-- Toggler/collapsibe Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Navbar links -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav float-md-right">
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="Home-page.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="new-student.html">Measure Marks
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="students-results.html">Students
+                                    Marks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="classes-list.html">Classes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="addClass.html">Sections</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="dashBoard-page.html">DashBoard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="result-page.html">Result</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold " href="contact-us.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+        </div>
+
+        <div class="container-fluid pt-1 py-2 bg-secondary" id="search">
+            <div class="row" id="search">
+
+
+                <div class="col-sm-4 ">
+                    <div class="input-group pb-2 ">
+
+                        <input type="text" class="form-control" id="textSearch" placeholder="Enter Hall Ticket No..."
+                            maxlength="13"
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <div class="input-group-prepend bg-white rounded-right ">
+                            <span class="input-group-button  btn btn-white bg-primary" onclick="searchData()"><i
+                                    class="fa-sharp fa-solid fa-magnifying-glass pt-1 text-white"></i></span>
+
+                        </div>
+                    </div>
+
+                </div>
+                <button type="button" class="col-sm-1 btn btn-warning  mb-2 mx-3 pt-1  text-white " id="clearBtn">
+                    <span><i class="fa-sharp fa-solid fa-xmark"></i></span>
+                    Clear</button>
+
+            </div>
+
+
+            <div class="modal fade" id="myModal" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-xl mt-2">
+                    <div class="modal-content">
+                    </div> -->
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-fluid bg-white pt-2 px-3 pb-5 d-none" id="resultinform">
+            <!-- <h5 class="text-primary"> Student Details</h5> -->
+
+            <div class="jumbotron p-0 mt-2 ">
+                <div class="card p-2">
+                    <div class="row">
+                        <div class="col-md-4">
+                            HallTicket Number
+                        </div>
+                        <div class="col-md-4" id="nmbHallTicket"></div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            Name
+                        </div>
+                        <div class="col-md-4" id="txtClassName"></div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            Class
+                        </div>
+                        <div class="col-md-4" id="txtStudentName"></div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            Grade
+                        </div>
+                        <div class="col-md-4" id="txtGrade"></div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            Result
+                        </div>
+                        <div class="col-md-4" id="txtResult"></div>
+
+                    </div>
+
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-2 ml-4 p-0 ">
+                        Mathematics
+                    </div>
+                    <div class="col-md-3" id="nmbMaths"></div>
+                    <div class="col-md-2">
+                        English
+                    </div>
+                    <div class="col-md-3" id="nmbEnglish"></div>
+
+                </div>
+                <hr>
+                <div class="row mt-2">
+                    <div class="col-md-2 ml-4 p-0 ">
+                        Physics
+                    </div>
+                    <div class="col-md-3" id="nmbPhysics"></div>
+                    <div class="col-md-2">
+                        Hindi
+                    </div>
+                    <div class="col-md-3" id="nmbHindi"></div>
+
+                </div>
+                <hr>
+                <div class="row mt-2">
+                    <div class="col-md-2 ml-4 p-0 ">
+                        Chemistry
+                    </div>
+                    <div class="col-md-3" id="nmbChemistry"></div>
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <div class="d-none" id="container"></div>
+        <div class="text-center d-none" id="noResultImage"><img src="Images/result.jpg"></div>
+    </main>
+    <script>
+
+
+
+
+        let jsonGetItem = (JSON.parse(localStorage.getItem("stu")));
+        function searchData() {
+
+            var serHallTick = document.getElementById("textSearch").value;
+            let storeNewObject = jsonGetItem.filter(item => item['Hallticket'] == serHallTick)[0];
+            if (storeNewObject != undefined) {
+                $("#resultinform").removeClass('d-none');
+                $("#container").removeClass('d-none');
+                $("#noResultImage").addClass('d-none');
+
+
+                document.getElementById("nmbHallTicket").innerHTML = storeNewObject.Hallticket;
+                document.getElementById("txtStudentName").innerHTML = storeNewObject.StuName;
+                document.getElementById("txtClassName").innerHTML = storeNewObject.StuClass;
+                document.getElementById("nmbMaths").innerHTML = storeNewObject.Mathe;
+                document.getElementById("nmbPhysics").innerHTML = storeNewObject.Phy;
+                document.getElementById("nmbChemistry").innerHTML = storeNewObject.Chemi;
+                document.getElementById("nmbEnglish").innerHTML = storeNewObject.Eng;
+                document.getElementById("nmbHindi").innerHTML = storeNewObject.Hindi;
+                document.getElementById("txtResult").innerHTML = storeNewObject.Result;
+                document.getElementById("txtGrade").innerHTML = storeNewObject.Grade;
+
+                let resultData = [{ name: 'Mathmatics', y: parseInt(storeNewObject.Mathe) },
+                { name: 'Physics', y: parseInt(storeNewObject.Phy) },
+                { name: 'Chemistary', y: parseInt(storeNewObject.Chemi) },
+                { name: 'English', y: parseInt(storeNewObject.Eng) },
+                { name: 'Hindi', y: parseInt(storeNewObject.Hindi) },]
+
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: '<b>Marks Percentage</b>',
+                        align: 'center'
+                    },
+                    // tooltip: {
+                    //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    // },
+                    // accessibility: {
+                    //     point: {
+                    //         valueSuffix: '%'
+                    //     }
+                    // },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.y} %'
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Marks',
+                        colorByPoint: true,
+                        data: resultData
+                    }]
+                });
+            }
+            else {
+                $("#resultinform").addClass('d-none');
+               // alert('Invalid Hall ticket number....')
+                $("#container").addClass('d-none');
+                $("#noResultImage").removeClass('d-none');
+            }
+
+        }
+        document.getElementById("clearBtn").addEventListener('click', () => {
+            document.getElementById('textSearch').value = '';
+            $("#resultinform").addClass('d-none');
+            $("#container").addClass('d-none');
+            $("#noResultImage").addClass('d-none');
+
+        });
+
+
+    </script>
+    <script src="Js/main.js"></script>
+
+
+</body>
+
+</html>

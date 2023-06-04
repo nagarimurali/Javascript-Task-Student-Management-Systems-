@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard </title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Css/style.css">
+    <!-- css source -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <!-- jquery Data tables -->
+
+    <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!-- piechart source -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <!-- Highest Marks in 10 Class Maths -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script> -->
+
+    <style>
+        .panel {
+
+            display: none;
+
+        }
+
+        #list {
+            padding: 7px 9px;
+            border-radius: 5px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid p-0">
+
+
+            <header>
+
+
+                <nav class="navbar navbar-expand-md bg-primary navbar-dark p-3">
+                    <!-- Brand -->
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <a href="Home-page.html"><span><img class="navbar-brand imageIcon mr-1"
+                                src="Images/svuniversity.jpg" alt="align box" align="CENTER"><span
+                                class="font-weight-bold text-white h4">Student Marks Management
+                            </span></a>
+
+                    <!-- Toggler/collapsibe Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Navbar links -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav float-md-right">
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="Home-page.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="new-student.html">Measure Marks
+                                    </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="students-results.html">Students
+                                    Marks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="classes-list.html">Classes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="addClass.html">Sections</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="dashBoard-page.html">DashBoard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="result-page.html">Result</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold " href="contact-us.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+        </div>
+        <div class="container-fluid d-none">
+            <div class="clearfix bg-primary mx-n3 py-2">
+                <div class="row">
+                    <div class=" col-md-5 mt-3 text-white ml-2 h4 font-weight-bold"><a href="Home-page.html"><span><img
+                                    src="Images/svuniversity.jpg" class="imageIcon"></span></a> Student DashBoard</div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row shadow-sm mx-0 mb-3 pb-2">
+            <div class="col-md-4 pl-0">
+                <h5 class="text-primary pl-2 pt-4 font-weight-bolder">DashBoard</h5>
+            </div>
+            <div class="col-md-8 p-3 text-right ">
+
+
+                <span class="font-weight-bold h5 pr-2">Select Class</span>
+
+                <select id="list" onchange="getSelectValue();">
+                    <option>Select</option>
+                    <option value="8 th Class">8 th Class</option>
+                    <option value="9 Class">9 Class</option>
+                    <option value="10 class">10 class</option>
+                </select>
+
+
+
+            </div>
+        </div>
+        <div class="text-center" id="noIteamImage" style="display: none;"><img src="Images/noiteam.jpg" style="width: 500px;"></div>
+        <!-- prrr -->
+        <div class="row">
+            <div class="col-md-12" id="StudentClassEl"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="noValuesStudentGraph">
+                <div class="row">
+                    <div class="col-md">
+                        <div id="containerAll"></div>
+                    </div>
+                    <div class="col-md">
+                        <div id="myChartAll" width="300px" height="300"></div>
+                        <!-- <canvas id="myChartAll" width="300px" height="300"></canvas> -->
+
+                    </div>
+                    <div class="col-md">
+
+                        <div id="myChart1All" width="300px" height="300"></div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+
+                        <div id="subChemistryAll" width="300px" height="300"></div>
+
+                    </div>
+                    <div class="col-md">
+
+                        <div id="subEnglishAll" width="300px" height="300"></div>
+
+                    </div>
+                    <div class="col-md">
+
+                        <div id="subHindiAll" width="300px" height="300"></div>
+
+                    </div>
+                </div>
+                <!-- gdhh -->
+
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+
+
+
+
+
+
+        loadStudentClass(JSON.parse(localStorage.getItem("Class")));
+
+
+        function loadStudentClass(StuClass) {
+            let ClassData = "<option>Select</option>";
+            // StuClass.forEach(function (valu, inte) {
+            //     ClassData += `<option  style="cursor:pointer;color:#000" value="''${valu.StuClass}" onclick="pieChartClass('${valu.StuClass}')">${valu.StuClass}</option>`;
+
+
+            StuClass.forEach(function (valu, inte) {
+                ClassData += `<option class="dropdown-item" style="cursor:pointer" value="${valu.Class}")>${valu.Class}</option>`;
+
+
+
+            });
+            //ClassData.sort((a, b) => b.Class - a.Class);
+            document.getElementById("list").innerHTML = ClassData;
+        }
+        var optionValues = [];
+        $('#list option').each(function () {
+            if ($.inArray(this.value, optionValues) > -1) {
+                $(this).remove()
+            } else {
+                optionValues.push(this.value);
+            }
+        });
+        function getSelectValue() {
+            var selectValue = document.getElementById("list").value;
+            if (selectValue == "Select") {
+                document.getElementById("noValuesStudentGraph").style.display = "none";
+                document.getElementById("StudentClassEl").style.display = "none"
+                document.getElementById("noIteamImage").style.display = "none"
+
+
+
+            } else {
+                document.getElementById("noValuesStudentGraph").style.display = "block";
+                document.getElementById("StudentClassEl").style.display = "block";
+
+
+                let filterClass = JSON.parse(localStorage.getItem("stu"));
+
+                let filterAllClass = filterClass.filter(item => item["StuClass"] == selectValue);
+                if (filterAllClass.length == 0) {
+                    document.getElementById("noValuesStudentGraph").style.display = "none";
+                    document.getElementById("StudentClassEl").style.display = "none"
+                    document.getElementById("noIteamImage").style.display = "block"
+
+                } else {
+                    document.getElementById("noValuesStudentGraph").style.display = "block";
+                    document.getElementById("StudentClassEl").style.display = "block"
+                    document.getElementById("noIteamImage").style.display = "none"
+
+                    let SortMethodMaths = filterAllClass.sort((a, b) => b.Mathe - a.Mathe);
+                    let firstFourHightMarkMaths = SortMethodMaths.slice(0, 4);
+
+
+                    let SortMethodPhy = filterAllClass.sort((a, b) => b.Phy - a.Phy);
+                    let firstFourHightMarkPhy = SortMethodPhy.slice(0, 4);
+
+                    let SortMethodChemi = filterAllClass.sort((a, b) => b.Chemi - a.Chemi);
+                    let firstFourHightMarkchemi = SortMethodChemi.slice(0, 4);
+
+                    let SortMethodEng = filterAllClass.sort((a, b) => b.Eng - a.Eng);
+                    let firstFourHightMarkEng = SortMethodEng.slice(0, 4);
+
+                    let SortMethodHind = filterAllClass.sort((a, b) => b.Hindi - a.Hindi);
+                    let firstFourHightMarkHind = SortMethodHind.slice(0, 4);
+
+
+
+                    //console.log(firstFourHightMarkMaths, firstFourHightMarkPhy, firstFourHightMarkchemi, firstFourHightMarkEng, firstFourHightMarkHind);
+                    let ClassNames = `<h1 class="text-center font-weight-bold">${selectValue} Students Marks</h1>`
+                    document.getElementById("StudentClassEl").innerHTML = ClassNames;
+
+                    var ctx = document.getElementById('myChartAll');
+
+                    let TenStudentName = [];
+                    let SubMaths = [];
+                    firstFourHightMarkMaths.map((item) => {
+                        TenStudentName.push([item.StuName, item.Mathe]);
+                        SubMaths.push(`${item.Mathe}`);
+
+                    });
+
+                    var ctx2 = document.getElementById('myChart1All');
+                    let SubPhysics = [];
+                    let StudentNamePhy = [];
+                    firstFourHightMarkPhy.map((item) => {
+                        StudentNamePhy.push([item.StuName, item.Phy]);
+                        SubPhysics.push(`${item.Phy}`);
+                    });
+
+                    var ctx3 = document.getElementById('subChemistryAll');
+                    let SubChemistry = [];
+                    let chemiStudent = [];
+                    firstFourHightMarkchemi.map((item) => {
+                        chemiStudent.push([item.StuName, item.Chemi]);
+                        SubChemistry.push(`${item.Chemi}`);
+                    });
+                    var ctx4 = document.getElementById('subEnglishAll');
+                    let SubEnglish = [];
+                    let EngStudent = [];
+                    firstFourHightMarkEng.map((item) => {
+                        EngStudent.push([item.StuName, item.Eng]);
+                        SubEnglish.push(`${item.Eng}`);
+                    });
+
+                    var ctx5 = document.getElementById('subHindiAll');
+                    let SubHindi = [];
+                    let HindStudent = [];
+                    firstFourHightMarkHind.map((item) => {
+
+                        HindStudent.push([item.StuName, item.Hindi]);
+                        SubHindi.push(`${item.Hindi}`);
+                    });
+
+                    // console.log(SubMaths);
+
+                    setTimeout(function () {
+
+                        StudendtsMarkCharts(ctx.id, TenStudentName, "Mathematics")
+
+                        StudendtsMarkCharts(ctx2.id, StudentNamePhy, "Physics")
+
+                        StudendtsMarkCharts(ctx3.id, chemiStudent, "Chemistry")
+
+                        StudendtsMarkCharts(ctx4.id, EngStudent, "English")
+
+                        StudendtsMarkCharts(ctx5.id, HindStudent, "Hindi")
+                        // alert('muyydeeu' + StuClass);
+
+                        //pie chart 
+                        let mathe = 0, phys = 0, chemi = 0, eng = 0, hindi = 0;
+
+                        let tenTHMap = filterAllClass.map((val) => {
+                            mathe += parseInt(val.Mathe);
+                            phys += parseInt(val.Phy);
+                            chemi += parseInt(val.Chemi);
+                            eng += parseInt(val.Eng);
+                            hindi += parseInt(val.Hindi);
+
+                        });
+                        //  console.log(mathe, phys, chemi, eng, hindi);
+                        let pieDataStudent = [{ name: 'Mathematics', y: mathe / (tenTHMap.length * 100) * 100 },
+                        { name: 'Physics', y: phys / (tenTHMap.length * 100) * 100 },
+                        { name: 'Chemistry', y: chemi / (tenTHMap.length * 100) * 100 },
+                        { name: 'English', y: eng / (tenTHMap.length * 100) * 100 },
+                        { name: 'Hindi', y: hindi / (tenTHMap.length * 100) * 100 },
+                        ]
+
+                        // pie chart
+                        TotalMarks("containerAll", `Total ${selectValue}Student All Subject Marks`, pieDataStudent)
+                    }, 1000);
+                }
+
+                function TotalMarks(StudentClass, allSubject, storageData) {
+                    Highcharts.chart(StudentClass, {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: allSubject,
+                            align: 'left'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.y:.1f}%</b>'
+                        },
+                        accessibility: {
+                            point: {
+                                valueSuffix: '%'
+                            }
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '<b>{point.name}</b>: {point.y:.1f} %'
+                                }
+                            }
+                        },
+                        series: [{
+                            name: 'Marks',
+                            colorByPoint: true,
+                            data: storageData,
+                        }]
+                    });
+                }
+                function StudendtsMarkCharts(canvasId, StudentName, subject) {
+                    Highcharts.chart(canvasId, {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: "Hight Marks of " + subject + " First Four Students"
+                        },
+                        //colors: ['#C79D6D', '#B5927B', '#CE9B84', '#B7A58C', '#C7A58C'],
+                        xAxis: {
+                            crosshair: true,
+                            labels: {
+                                style: {
+                                    fontSize: '14px'
+                                }
+                            },
+                            type: 'category'
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Marks'
+                            }
+                        },
+                        tooltip: {
+                            valueSuffix: ' M'
+                        },
+                        series: [{
+                            name: subject,
+                            colorByPoint: true,
+                            data: StudentName,
+                            showInLegend: false
+                        }]
+                    });
+
+                }
+            }
+        }
+    </script>
+    <script src="Js/main.js"></script>
+
+</body>
+
+</html>

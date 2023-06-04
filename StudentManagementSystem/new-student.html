@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Student</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/style1.css">
+
+    <!-- Toast Script -->
+
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* sdd */
+
+
+        /* ggfh */
+        body {
+            background-color: whitesmoke;
+        }
+        /* .active{
+            background-color: black;
+        } */
+       
+    </style>
+</head>
+
+<body>
+    <div id="toast"></div>
+    <div class="container-fluid p-0">
+
+
+        <header>
+
+
+            <nav class="navbar navbar-expand-md bg-primary navbar-dark p-3">
+                <!-- Brand -->
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <a href="Home-page.html"><span><img class="navbar-brand imageIcon mr-1" src="Images/svuniversity.jpg"
+                            alt="align box" align="CENTER"><span class="font-weight-bold text-white h4">Student Marks Management
+                           </span></a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav float-md-right">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="Home-page.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="new-student.html">
+                                Measure Marks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="students-results.html">Students
+                                Marks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="classes-list.html">Classes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="addClass.html">Sections</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="dashBoard-page.html">DashBoard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="result-page.html">Result</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold " href="contact-us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="container mt-5 bg-white p-0">
+
+        <div class="row shadow-sm m-0">
+            <div class="col-md-4 pl-0">
+                <h5 class="text-primary p-3 font-weight-bolder"> Measure Marks</h5>
+            </div>
+            <div class="col-md-8 p-3 text-right d-none">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Student Class
+                </button>&nbsp;
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalSection">
+                    Student Section
+                </button>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Class Add</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row d-none">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right">
+                                        <div class="h4">S.No</div>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-lg " id="txtSNo"
+                                            placeholder="S.No">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right ">
+                                        <div class="h4">Class</div>
+                                    </label>
+                                    <input type="text"
+                                        class="col-sm-6 form-control form-control-lg ml-3 form-control form-control-lg "
+                                        id="txtAddClassName" placeholder="Class">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-check text-right">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Active
+                                </label>
+                            </div>
+                            <div class="col-md-6 form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Non-Active
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="btnSaveCls">Save </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalSection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Class Section</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right">
+                                        <div class="h4">S.No</div>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-lg " id="txtSNo"
+                                            placeholder="S.No">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right">
+                                        <div class="h4">Class<span class="text-danger">*</span> </div>
+                                    </label>
+                                    <div class="col-sm-7">
+                                        <!-- <input type="text" class="form-control form-control-lg " id="txtClassName"
+                            placeholder="Class"> -->
+                                        <select class=" col-sm-11 form-control form-control-lg" id="ddlClass"
+                                            required="">
+                                            <option>Select</option>
+                                            <!-- <option>8 Class</option>
+                                            <option>9 Class</option>
+                                            <option>10 Class </option> -->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm"
+                                        class="col-sm-4 col-form-label col-form-label-sm text-right ">
+                                        <div class="h4">Section<span class="text-danger">*</span> </div>
+                                    </label>
+                                    <!-- <select class=" col-sm-6 form-control form-control-lg ml-3" id="ddlSection" required="">
+                        <option>Select</option>
+                        <option>Section A</option>
+                        <option>Section B</option>
+                        <option>Section C</option>
+                    </select> -->
+                                    <input type="text"
+                                        class="col-sm-6 form-control form-control-lg ml-3 form-control form-control-lg "
+                                        id="txtSectionBox" placeholder="Section">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-check text-right">
+                                <input class="form-check-input" type="radio" name="add" value="Active"
+                                    id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Active
+                                </label>
+                            </div>
+                            <div class="col-md-6 form-check">
+                                <input class="form-check-input" type="radio" name="add" value="Non-Active"
+                                    id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Non-Active
+                                </label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="btnSubmit">Save </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="container-fluid  pt-5 mt-3 border">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h5 font-weight-bold"> Enter HallTicket No </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg " id="nmbHallTicket"
+                                placeholder="HallTicket No..." maxlength="13"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row ">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Student Name<span class="text-danger">*</span> </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg " id="txtStudentName"
+                                placeholder="Student Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-right">
+                            <div class="h4">Class<span class="text-danger">*</span> </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="text" class="form-control form-control-lg " id="txtClassName"
+                                placeholder="Class"> -->
+                            <select class=" col-sm-11 form-control form-control-lg" id="txtClassName" required="">
+                                <option value="Select">Select</option>
+                                <option value="8 Class">8 Class</option>
+                                <option value="9 Class">9 Class</option>
+                                <option value="10 Class">10 Class </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row ">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Section<span class="text-danger">*</span> </div>
+                        </label>
+                        <select class=" col-sm-6 form-control form-control-lg ml-3" id="ddlSection" disabled
+                            required="">
+                            <option value="Section">Section</option>
+                            <option value="Section A">Section A</option>
+                            <option value="Section B">Section B</option>
+                            <option value="Section c">Section C</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-right">
+                            <div class="h4">Gender<span class="text-danger">*</span> </div>
+                        </label>
+                        <select class=" col-sm-6 form-control form-control-lg ml-3" id="ddlGender" required="">
+                            <option>Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 h4 font-weight-bold">Subjects</div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Mathematics </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class=" valuDation form-control form-control-lg " id="nmbMaths"
+                                placeholder="Marks" onchange="calculatorMarks()" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm  text-right">
+                            <div class="h4">English </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class=" valuDation form-control form-control-lg " id="nmbEnglish"
+                                placeholder="Marks" placeholder="Marks" onchange="calculatorMarks()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Physics </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg " id="nmbPhysics"
+                                onchange="calculatorMarks()" placeholder="Marks" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm  text-right">
+                            <div class="h4">Hindi </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg " id="nmbHindi" placeholder="Marks"
+                                onchange="calculatorMarks()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Chemistry </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg " id="nmbChemistry"
+                                placeholder="Marks" onchange="calculatorMarks()" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm  text-right">
+                            <div class="h4">Total </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <label id="txtTotal" class="mt-2"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm ">
+                            <div class="h4">Result </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="text" class="form-control form-control-lg " id="txtResult"> -->
+                            <label id="txtResult"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row pt-3">
+                        <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm text-md-right ">
+                            <div class="h4">Grade </div>
+                        </label>
+                        <div class="col-sm-7">
+                            <!-- <input type="text" class="form-control form-control-lg " id="txtGrade"> -->
+                            <label id="txtGrade" class="pt-2 pl-2"></label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="float-md-right">
+                        <button type="button" id="btnSave" class="btn btn-success">Save</button>&nbsp;
+                        <a href="Home-page.html"><button type="button" class="btn btn-danger"
+                                id="btnCancel">Cancel</button></a>
+                    </label>
+                </div>
+            </div>
+
+
+
+        </form>
+
+
+        <div class="modal fade d-none" id="exampleModa3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Class Add</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-striped table-sm mt-3">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Class</th>
+                                            <th>Section</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <!-- <div class="row">
+                            <div class="col-md-6 form-check text-right">
+                                <input type="checkbox" name="check" onclick="onlyOne(this)">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Active
+                                </label>
+                            </div>
+                            <div class="col-md-6 form-check">
+                                <input type="checkbox" name="check" onclick="onlyOne(this)">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Non-Active
+                                </label>
+                            </div>
+
+                        </div> -->
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="btnSaveCls">Save </button>
+                    </div> -->
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+
+        function createGuid() {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+        }
+
+        function studentData() {
+            var hallticket = document.getElementById("nmbHallTicket").value;
+            var stuName = document.getElementById("txtStudentName").value;
+            var stuClass = document.getElementById("txtClassName").value;
+            var stuSection = document.getElementById("ddlSection").value;
+            var stuGender = document.getElementById("ddlGender").value;
+
+            var mathe = parseInt(document.getElementById("nmbMaths").value);
+            var phy = parseInt(document.getElementById("nmbPhysics").value);
+            var chemi = parseInt(document.getElementById("nmbChemistry").value);
+            var eng = parseInt(document.getElementById("nmbEnglish").value);
+            var hindi = parseInt(document.getElementById("nmbHindi").value);
+
+
+            var stuHallTicket = true;
+            let jsonGetItem = (JSON.parse(localStorage.getItem("stu")));
+            if (jsonGetItem != null && jsonGetItem != undefined) {
+                if (jsonGetItem.length != 0) {
+                    var result = jsonGetItem.filter(obj => obj.Hallticket == hallticket);
+                    if (result.length) {
+                        alert('already used the Hallticket number')
+
+                        stuHallTicket = false
+                    }
+                }
+
+            }
+
+            if (stuHallTicket && hallticket && stuName != "" && stuClass != "Select" && stuSection != "Section" && stuGender != "Select" &&
+                document.getElementById("nmbMaths").value != "" && document.getElementById("nmbPhysics").value != "" &&
+                document.getElementById("nmbChemistry").value != "" && document.getElementById("nmbEnglish").value != "" && document.getElementById("nmbHindi").value != "") {
+                var result = (mathe + phy + chemi + eng + hindi);
+                document.getElementById("txtTotal").innerHTML = result;
+                var grade = "";
+                document.getElementById("txtGrade").innerHTML = grade;
+                if (mathe > 34 && phy > 34 && chemi > 34 && eng > 34 && hindi > 34) {
+                    document.getElementById("txtResult").innerHTML = "Pass";
+
+                    var per = result / 500 * 100;
+                    console.log(per);
+
+
+                    switch (true) {
+
+                        case (per > 90):
+                            grade = "A";
+                            // document.getElementById("txtGrade").innerHTML="A";
+                            break;
+                        case (per > 70):
+                            grade = "B";
+                            //document.getElementById("txtGrade").innerHTML="B";
+                            break;
+                        case (per > 50):
+                            grade = "c";
+                            //document.getElementById("txtGrade").innerHTML="C";
+                            break;
+                        case (per > 34):
+                            grade = "D";
+                            //  document.getElementById("txtGrade").innerHTML="D";
+                            break;
+                        default:
+                            grade = "F";
+
+                        //   document.getElementById("txtGrade").innerHTML="F";
+                    }
+                    console.log(grade);
+                }
+                else {
+
+                    document.getElementById("txtResult").innerHTML = "Fail";
+
+                    //document.getElementById("txtGrade").innerHTML="F";
+                    grade = "F";
+                }
+                document.getElementById("txtGrade").innerHTML = grade;
+                var generate = createGuid();
+                var storeNewObject = {
+                    "Hallticket": hallticket,
+                    "generate": generate,
+                    "StuName": stuName,
+                    "StuClass": stuClass,
+                    "StuSection": stuSection,
+                    "StuGender": stuGender,
+                    "Result": result,
+                    // "Per":per,
+                    "Mathe": mathe,
+                    "Phy": phy,
+                    "Chemi": chemi,
+                    "Eng": eng,
+                    "Hindi": hindi,
+                    "Grade": grade
+                }
+                console.log(storeNewObject.Grade);
+                console.log(storeNewObject.Result);
+                //let jsonGetItem = (JSON.parse(localStorage.getItem("stu")));
+                var students = [];
+                var studentStrings = localStorage.getItem("stu");
+                students = (studentStrings == "" || studentStrings == null || studentStrings == undefined) ? [] : JSON.parse(studentStrings);
+                students.push(storeNewObject);
+                localStorage.setItem("stu", JSON.stringify(students));
+
+                console.log(JSON.stringify(students));
+
+                window.location.href = "students-results.html"
+            } else {
+                // alert('Please  enter all values')
+                showErrorToast();
+
+            }
+        }
+        document.getElementById("btnSave").addEventListener("click", function () {
+            studentData();
+
+
+        });
+        let amount = document.getElementById("nmbMaths");
+        amount.addEventListener('input', function () {
+            const n = amount.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            if (n >= 0 && n <= 100) {
+                amount.value = amount.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            } else {
+                amount.value = n.slice(0, -1);
+            }
+        })
+
+        let amount1 = document.getElementById("nmbEnglish");
+        amount1.addEventListener('input', function () {
+            const n = amount1.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            if (n >= 0 && n <= 100) {
+                amount1.value = amount1.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            } else {
+                amount1.value = n.slice(0, -1);
+            }
+        })
+        let amount2 = document.getElementById("nmbPhysics");
+        amount2.addEventListener('input', function () {
+            const n = amount2.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            if (n >= 0 && n <= 100) {
+                amount2.value = amount2.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            } else {
+                amount2.value = n.slice(0, -1);
+            }
+        })
+        let amount3 = document.getElementById("nmbHindi");
+        amount3.addEventListener('input', function () {
+            const n = amount3.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            if (n >= 0 && n <= 100) {
+                amount3.value = amount3.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            } else {
+                amount3.value = n.slice(0, -1);
+            }
+        })
+        let amount4 = document.getElementById("nmbChemistry");
+        amount4.addEventListener('input', function () {
+            const n = amount4.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            if (n >= 0 && n <= 100) {
+                amount4.value = amount4.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+            } else {
+                amount4.value = n.slice(0, -1);
+            }
+        })
+
+
+        function calculatorMarks() {
+            let amount = document.getElementById("nmbMaths").value;
+            let amount1 = document.getElementById("nmbEnglish").value;
+            let amount2 = document.getElementById("nmbPhysics").value;
+            let amount3 = document.getElementById("nmbHindi").value;
+            let amount4 = document.getElementById("nmbChemistry").value;
+
+            amount = amount != undefined && amount != "" ? parseInt(amount) : 0;
+            amount1 = amount1 != undefined && amount1 != "" ? parseInt(amount1) : 0;
+            amount2 = amount2 != undefined && amount2 != "" ? parseInt(amount2) : 0;
+            amount3 = amount3 != undefined && amount3 != "" ? parseInt(amount3) : 0;
+            amount4 = amount4 != undefined && amount4 != "" ? parseInt(amount4) : 0;
+            document.getElementById("txtTotal").innerHTML = amount + amount1 + amount2 + amount3 + amount4;
+
+
+            var result = (amount + amount1 + amount2 + amount3 + amount4);
+            document.getElementById("txtTotal").innerHTML = result;
+            var grade = "";
+            document.getElementById("txtGrade").innerHTML = grade;
+            if (amount > 34 && amount1 > 34 && amount2 > 34 && amount3 > 34 && amount4 > 34) {
+                document.getElementById("txtResult").innerHTML = "Pass";
+
+                var per = result / 500 * 100;
+                console.log(per);
+
+
+                switch (true) {
+
+                    case (per > 90):
+                        grade = "A";
+                        // document.getElementById("txtGrade").innerHTML="A";
+                        break;
+                    case (per > 70):
+                        grade = "B";
+                        //document.getElementById("txtGrade").innerHTML="B";
+                        break;
+                    case (per > 50):
+                        grade = "c";
+                        //document.getElementById("txtGrade").innerHTML="C";
+                        break;
+                    case (per > 34):
+                        grade = "D";
+                        //  document.getElementById("txtGrade").innerHTML="D";
+                        break;
+                    default:
+                        grade = "F";
+
+                    //   document.getElementById("txtGrade").innerHTML="F";
+                }
+                console.log(grade);
+                document.getElementById("txtGrade").innerHTML = grade;
+            }
+            else {
+
+                document.getElementById("txtResult").innerHTML = "Fail";
+
+                //document.getElementById("txtGrade").innerHTML="F";
+                grade = "F";
+            }
+        }
+
+        function showErrorToast() {
+            toast({
+                title: "Error!",
+                message: "Please Enter the all values!!!",
+                type: "error",
+                duration: 3000
+
+            })
+        }
+
+        let vnnx = document.getElementById("txtClassName");
+
+        vnnx.onchange = function () {
+            if (this.value != "Select") {
+                document.getElementById("ddlSection").disabled = false;
+                selectionDrapdown();
+
+            } else {
+                document.getElementById("ddlSection").value = "Section";
+                document.getElementById("ddlSection").disabled = true;
+
+            }
+        }
+
+
+
+        ///kkk
+        let ClassSection = [...JSON.parse(localStorage.getItem("Selection"))];
+        console.log(ClassSection);
+
+        let AddOption1 = `<option>Select</option>`;
+        let AddSection1 = '<option>Section</option>';
+
+        ClassSection.forEach((item) => {
+            if(item.Status=="Active"){
+            AddOption1 += `<option>${item.Class}</option>`;
+            AddSection1 += `<option>${item.Section}</option>`;
+            }
+
+        })
+        document.getElementById("txtClassName").innerHTML = AddOption1;
+        document.getElementById("ddlSection").innerHTML = AddSection1;
+        // console.log(AddOption1);
+        console.log(AddSection1);
+
+        //filler drop down
+
+
+
+        function selectionDrapdown() {
+            let strorageDataCls1 = [...JSON.parse(localStorage.getItem("Selection"))];
+            let clzss = document.getElementById("txtClassName").value;
+            let sdhjs = `<option>Section</option>`;
+
+            let classlist = strorageDataCls1.filter((item) => item.Class === clzss)
+            classlist.forEach((valu) => {
+                if(valu.Status=="Active"){
+                sdhjs += `<option>${valu.Section}</option>`;
+                }
+
+            })
+
+
+            console.log(classlist);
+            document.getElementById("ddlSection").innerHTML = sdhjs;
+        }
+        //remove Class
+
+        var optionValues = [];
+        $('#txtClassName option').each(function () {
+            if ($.inArray(this.value, optionValues) > -1) {
+                $(this).remove();
+                ////  remember the very last removed one
+                lastRemoved = $(this);
+            } else {
+                optionValues.push(this.value);
+            }
+        });
+
+    </script>
+    <script src="Js/app.js"></script>
+    <script src="Js/main.js"></script>
+
+</body>
+
+</html>
